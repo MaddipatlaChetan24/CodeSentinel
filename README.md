@@ -12,6 +12,8 @@ Paste a snippet or point at a file — get deterministic AST-based findings plus
 [![Anthropic](https://img.shields.io/badge/Anthropic-Claude-D97757?logo=anthropic&logoColor=white)](https://anthropic.com)
 [![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-000000?logo=ollama&logoColor=white)](https://ollama.com)
 
+![CodeSentinel dashboard](docs/dashboard.jpg)
+
 </div>
 
 ---
