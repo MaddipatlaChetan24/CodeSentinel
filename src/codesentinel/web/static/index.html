@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CodeSentinel — AI Code Review, Backed by Real Static Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <div class="bg-layer" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+    <div class="grid-overlay"></div>
+    <div class="noise"></div>
+  </div>
+
+  <nav class="topnav">
+    <div class="brand">
+      <span class="logo-mark">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="m8.5 12.5 2.3 2.3L16 9.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">CodeSentinel</span>
+    </div>
+    <div class="nav-links">
+      <a href="#product">Product</a>
+      <a href="#history">History</a>
+      <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <a class="nav-cta" href="#product">Run a review</a>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">Static analysis + multi-LLM insight</span>
+    <h1>Ship code your reviewers<br /><span class="grad-text">would actually approve.</span></h1>
+    <p class="hero-sub">
+      CodeSentinel pairs a deterministic AST-based analyzer with pluggable LLM
+      providers — OpenAI, Anthropic, or a fully local Ollama model — so every
+      review catches real bugs, not just style nits.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">0ms</span><span class="stat-label">to first finding, no API key</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">LLM providers supported</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">local-first option via Ollama</span></div>
+    </div>
+  </header>
+
+  <main id="product">
+    <section class="panel glass">
+      <div class="panel-head">
+        <h2>Submit code</h2>
+        <p>Paste a snippet and run it through the analyzer plus an optional LLM pass.</p>
+      </div>
+      <div class="row">
+        <label>Language
+          <select id="language">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="typescript">TypeScript</option>
+            <option value="go">Go</option>
+            <option value="java">Java</option>
+            <option value="ruby">Ruby</option>
+          </select>
+        </label>
+        <label>Provider
+          <select id="provider">
+            <option value="">Auto-detect</option>
+            <option value="openai">OpenAI</option>
+            <option value="anthropic">Anthropic</option>
+            <option value="ollama">Ollama (local)</option>
+          </select>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="use_llm" checked />
+          Include LLM insight
+        </label>
+      </div>
+      <textarea id="code" placeholder="Paste code here..." spellcheck="false"></textarea>
+      <div class="action-row">
+        <button id="submit"><span>Run review</span></button>
+        <span id="status"></span>
+      </div>
+    </section>
+
+    <section class="panel glass" id="result-panel" hidden>
+      <div class="panel-head">
+        <h2>Result</h2>
+      </div>
+      <div id="result-summary"></div>
+      <table id="findings-table">
+        <thead><tr><th>Severity</th><th>Category</th><th>Rule</th><th>Line</th><th>Message</th></tr></thead>
+        <tbody id="findings-body"></tbody>
+      </table>
+      <div id="llm-block"></div>
+    </section>
+
+    <section class="panel glass" id="history">
+      <div class="panel-head">
+        <h2>History</h2>
+        <p>Every review run through this dashboard, persisted locally.</p>
+      </div>
+      <table id="history-table">
+        <thead><tr><th>#</th><th>Target</th><th>Language</th><th>Score</th><th>Verdict</th><th>When</th></tr></thead>
+        <tbody id="history-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <span>CodeSentinel</span>
+    <span class="dot">·</span>
+    <span>Static analysis runs entirely offline. LLM insight is optional.</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

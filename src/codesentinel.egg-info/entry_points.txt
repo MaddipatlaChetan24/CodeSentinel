@@ -1,0 +1,2 @@
+[console_scripts]
+codesentinel = codesentinel.cli:main
