@@ -19,9 +19,6 @@ def test_disabled_rule_is_filtered(tmp_path):
     config = RuleConfig.load(config_path)
 
     findings = [Finding("bare-except", Category.BUG, Severity.MEDIUM, 
-    assert result[0].severity == Severity.CRITICAL
-
-    findings = [
         Finding("a", Category.STYLE, Severity.INFO, "info"),
         Finding("b", Category.SECURITY, Severity.CRITICAL, "critical"),
     ]
