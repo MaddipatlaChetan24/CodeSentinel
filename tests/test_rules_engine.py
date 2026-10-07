@@ -21,9 +21,6 @@ def test_disabled_rule_is_filtered(tmp_path):
 
 
 def test_custom_rule_matches_source(tmp_path):
-    config_path = tmp_path / ".codesentinel.yml"
-    config_path.write_text(
-        textwrap.dedent(
               - id: no-print
                 pattern: '\\bprint\\('
                 message: "Don't use print"
