@@ -18,9 +18,6 @@ def test_disabled_rule_is_filtered(tmp_path):
 
                 message: "Don't use print"
                 severity: low
-                category: style
-            """
-        )
     )
     config = RuleConfig.load(config_path)
     findings = config.apply_custom_rules("print('hi')\n")
