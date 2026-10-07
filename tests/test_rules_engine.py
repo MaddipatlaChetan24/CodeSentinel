@@ -24,8 +24,6 @@ def test_disabled_rule_is_filtered(tmp_path):
 
 def test_min_severity_filters_low_findings(tmp_path):
     config_path = tmp_path / ".codesentinel.yml"
-    config_path.write_text("min_severity: high\n")
-    config = RuleConfig.load(config_path)
 
     findings = [
         Finding("a", Category.STYLE, Severity.INFO, "info"),
