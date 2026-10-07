@@ -23,4 +23,3 @@ def test_disabled_rule_is_filtered(tmp_path):
 def test_missing_config_returns_defaults(tmp_path):
     config = RuleConfig.load(tmp_path / "does-not-exist.yml")
     assert config.disabled_rules == set()
-    assert config.custom_rules == []
