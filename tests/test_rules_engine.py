@@ -27,8 +27,6 @@ def test_custom_rule_matches_source(tmp_path):
     config_path = tmp_path / ".codesentinel.yml"
     config_path.write_text(
         textwrap.dedent(
-            """
-            custom_rules:
               - id: no-print
                 pattern: '\\bprint\\('
                 message: "Don't use print"
