@@ -15,9 +15,6 @@ def test_disabled_rule_is_filtered(tmp_path):
     ]
     result = config.filter_and_adjust(findings)
     assert [f.rule_id for f in result] == ["bare-except"]
-
-
-def test_severity_override(tmp_path):
     config_path = tmp_path / ".codesentinel.yml"
     config = RuleConfig.load(config_path)
 
