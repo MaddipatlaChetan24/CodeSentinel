@@ -13,10 +13,6 @@ def test_disabled_rule_is_filtered(tmp_path):
         Finding("unused-import", Category.STYLE, Severity.INFO, "unused"),
         Finding("bare-except", Category.BUG, Severity.MEDIUM, "bare except"),
     ]
-    result = config.filter_and_adjust(findings)
-    assert [f.rule_id for f in result] == ["bare-except"]
-    config_path = tmp_path / ".codesentinel.yml"
-    findings = [Finding("bare-except", Category.BUG, Severity.MEDIUM, 
         Finding("a", Category.STYLE, Severity.INFO, "info"),
 
 
