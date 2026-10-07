@@ -21,7 +21,6 @@ def test_disabled_rule_is_filtered(tmp_path):
     findings = [Finding("bare-except", Category.BUG, Severity.MEDIUM, 
         Finding("a", Category.STYLE, Severity.INFO, "info"),
         Finding("b", Category.SECURITY, Severity.CRITICAL, "critical"),
-    ]
 
 
 def test_custom_rule_matches_source(tmp_path):
