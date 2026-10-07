@@ -21,10 +21,6 @@ def test_disabled_rule_is_filtered(tmp_path):
     findings = [Finding("bare-except", Category.BUG, Severity.MEDIUM, 
     assert result[0].severity == Severity.CRITICAL
 
-
-def test_min_severity_filters_low_findings(tmp_path):
-    config_path = tmp_path / ".codesentinel.yml"
-
     findings = [
         Finding("a", Category.STYLE, Severity.INFO, "info"),
         Finding("b", Category.SECURITY, Severity.CRITICAL, "critical"),
