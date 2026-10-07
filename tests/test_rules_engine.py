@@ -19,7 +19,6 @@ def test_disabled_rule_is_filtered(tmp_path):
 
 def test_severity_override(tmp_path):
     config_path = tmp_path / ".codesentinel.yml"
-    config_path.write_text("severity_overrides:\n  bare-except: critical\n")
     config = RuleConfig.load(config_path)
 
     findings = [Finding("bare-except", Category.BUG, Severity.MEDIUM, 
