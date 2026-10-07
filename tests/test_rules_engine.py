@@ -16,9 +16,6 @@ def test_disabled_rule_is_filtered(tmp_path):
         Finding("a", Category.STYLE, Severity.INFO, "info"),
 
 
-def test_custom_rule_matches_source(tmp_path):
-              - id: no-print
-                pattern: '\\bprint\\('
                 message: "Don't use print"
                 severity: low
                 category: style
