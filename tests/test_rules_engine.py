@@ -22,8 +22,7 @@ def test_severity_override(tmp_path):
     config_path.write_text("severity_overrides:\n  bare-except: critical\n")
     config = RuleConfig.load(config_path)
 
-    findings = [Finding("bare-except", Category.BUG, Severity.MEDIUM, "bare except")]
-    result = config.filter_and_adjust(findings)
+    findings = [Finding("bare-except", Category.BUG, Severity.MEDIUM, 
     assert result[0].severity == Severity.CRITICAL
 
 
