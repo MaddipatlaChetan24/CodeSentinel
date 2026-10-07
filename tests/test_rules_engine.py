@@ -12,8 +12,4 @@ def test_disabled_rule_is_filtered(tmp_path):
     findings = [
         Finding("unused-import", Category.STYLE, Severity.INFO, "unused"),
         Finding("bare-except", Category.BUG, Severity.MEDIUM, "bare except"),
-    ]
-        Finding("a", Category.STYLE, Severity.INFO, "info"),
 
-
-\
