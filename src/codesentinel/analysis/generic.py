@@ -30,8 +30,33 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                 Finding(
                     rule_id="hardcoded-secret",
                     category=Category.SECURITY,
+                    severity=Severity.CRITICAL,
+                    message="Possible hardcoded credential or secret.",
                     line=lineno,
                 )
+            )
+        if _SQL_CONCAT.search(line):
+            findings.append(
+                Finding(
+                    rule_id="sql-string-concatenation",
+                    category=Category.SECURITY,
+                    severity=Severity.HIGH,
+                    message="SQL query appears to be built with string "
+                    "concatenation. Use parameterized queries to avoid "
+                    "SQL injection.",
+                    line=lineno,
+                )
+            )
+        if language in ("javascript", "typescript") and _CONSOLE_DEBUG.search(line):
+            findings.append(
+                Finding(
+                    rule_id="leftover-console-debug",
+                    category=Category.STYLE,
+                    severity=Severity.INFO,
+                    message="Leftover console.log/debug statement.",
+                    line=lineno,
+                )
+            )
         if _TODO_PATTERN.search(line):
             findings.append(
                 Finding(
@@ -46,5 +71,11 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
             findings.append(
                 Finding(
                     rule_id="line-too-long",
-                   
+                    category=Category.STYLE,
+                    severity=Severity.INFO,
+                    message=f"Line is {len(line)} characters long (limit 120).",
+                    line=lineno,
+                )
+            )
 
+    return findings
