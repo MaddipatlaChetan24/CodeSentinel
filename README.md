@@ -59,7 +59,7 @@ flowchart LR
 - **Framework**: [FastAPI](https://fastapi.tiangolo.com/) + [Uvicorn](https://www.uvicorn.org/)
 - **Frontend**: HTML5, CSS3, Vanilla JS
 - **Static Analysis**: Python `ast` module, regex-based generic checks
-- **LLM Providers**: [OpenAI](https://openai.com), [Anthropic](https://anthropic.com), [Ollama](https://ollama.com) (local, no API key)
+- **LLM Providers**: [OpenAI](https://openai.com),[Ollama](https://ollama.com) (local, no API key)
 - **Config**: [PyYAML](https://pyyaml.org/) (`.codesentinel.yml` rule engine)
 - **Storage**: SQLite (review history)
 - **Packaging**: setuptools, `src/` layout
