@@ -27,6 +27,3 @@ def review_source(
     findings.extend(rule_config.apply_custom_rules(source))
     findings = rule_config.filter_and_adjust(findings)
     findings.sort(key=lambda f: (-f.severity.weight, f.line or 0))
-
-            else:
-                result.llm_summary = (
