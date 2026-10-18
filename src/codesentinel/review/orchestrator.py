@@ -29,7 +29,5 @@ def review_source(
     findings.sort(key=lambda f: (-f.severity.weight, f.line or 0))
 
             else:
-                result.llm_summary = (
-                    f"({provider.name} provider not configured — set the "
                     "required API key/host to enable LLM insights.
     
