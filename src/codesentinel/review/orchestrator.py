@@ -35,6 +35,4 @@ def review_source(
                 )
         except ProviderError as exc:
             result.llm_summary = f"(LLM review skipped: {exc})"
-
-    result.duration_seconds = time.monotonic() - start
     return result
