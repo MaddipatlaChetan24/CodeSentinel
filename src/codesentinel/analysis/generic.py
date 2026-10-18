@@ -65,6 +65,4 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                     message=f"Line is {len(line)} characters long (limit 120).",
                     line=lineno,
                 )
-            )
-
-    return findings
+        
