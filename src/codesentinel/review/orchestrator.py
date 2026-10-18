@@ -28,8 +28,6 @@ def review_source(
     findings = rule_config.filter_and_adjust(findings)
     findings.sort(key=lambda f: (-f.severity.weight, f.line or 0))
 
-                result.llm_summary = provider.review(source, language)
-                result.llm_provider = provider.name
             else:
                 result.llm_summary = (
                     f"({provider.name} provider not configured — set the "
