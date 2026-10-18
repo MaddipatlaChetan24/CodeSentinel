@@ -60,6 +60,5 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
             findings.append(
                 Finding(
                     rule_id="line-too-long",
-                    category=Category.STYLE,
-                    severity=Severity.INFO,
+                   
 
