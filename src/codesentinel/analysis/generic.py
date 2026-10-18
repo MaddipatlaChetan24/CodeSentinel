@@ -34,11 +34,7 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                     message="Possible hardcoded credential or secret.",
                     line=lineno,
                 )
-            )
-        if _SQL_CONCAT.search(line):
-                    message="SQL query appears to be built with string "
-                    "concatenation. Use parameterized queries to avoid "
-                    "SQL injection.",
+
                     line=lineno,
                 )
             )
