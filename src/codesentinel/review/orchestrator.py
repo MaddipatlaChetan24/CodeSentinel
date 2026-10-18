@@ -32,4 +32,4 @@ def review_source(
                 result.llm_summary = (
                     f"({provider.name} provider not configured — set the "
                     "required API key/host to enable LLM insights.)"
-                )
+    
