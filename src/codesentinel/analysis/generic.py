@@ -32,11 +32,6 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                     category=Category.SECURITY,
                     line=lineno,
                 )
-                    severity=Severity.INFO,
-                    message="Leftover console.log/debug statement.",
-                    line=lineno,
-                )
-            )
         if _TODO_PATTERN.search(line):
             findings.append(
                 Finding(
