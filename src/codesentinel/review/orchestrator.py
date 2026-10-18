@@ -28,11 +28,6 @@ def review_source(
     findings = rule_config.filter_and_adjust(findings)
     findings.sort(key=lambda f: (-f.severity.weight, f.line or 0))
 
-    result = ReviewResult(target=target, language=language, findings=findings)
-
-    if provider is not None:
-        try:
-            if provider.is_available():
                 result.llm_summary = provider.review(source, language)
                 result.llm_provider = provider.name
             else:
