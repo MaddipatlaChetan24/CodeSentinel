@@ -62,7 +62,4 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                     rule_id="line-too-long",
                     category=Category.STYLE,
                     severity=Severity.INFO,
-                    message=f"Line is {len(line)} characters long (limit 120).",
-                    line=lineno,
-                )
-        
+
