@@ -32,11 +32,6 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                     category=Category.SECURITY,
                     line=lineno,
                 )
-            )
-        if language in ("javascript", "typescript") and _CONSOLE_DEBUG.search(line):
-            findings.append(
-                    rule_id="leftover-console-debug",
-                    category=Category.STYLE,
                     severity=Severity.INFO,
                     message="Leftover console.log/debug statement.",
                     line=lineno,
