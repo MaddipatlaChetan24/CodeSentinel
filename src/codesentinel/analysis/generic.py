@@ -32,9 +32,6 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                     category=Category.SECURITY,
                     line=lineno,
                 )
-
-                    line=lineno,
-                )
             )
         if language in ("javascript", "typescript") and _CONSOLE_DEBUG.search(line):
             findings.append(
