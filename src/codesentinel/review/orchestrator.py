@@ -23,7 +23,4 @@ def review_source(
     start = time.monotonic()
     rule_config = rule_config or RuleConfig.load()
 
-    findings = run_static_analysis(source, language)
-    findings.extend(rule_config.apply_custom_rules(source))
-    findings = rule_config.filter_and_adjust(findings)
-    findings.sort(key=lambda f: (-f.severity.weight, f.line or 0))
+
