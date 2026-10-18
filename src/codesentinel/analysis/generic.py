@@ -36,11 +36,6 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                 )
             )
         if _SQL_CONCAT.search(line):
-            findings.append(
-                Finding(
-                    rule_id="sql-string-concatenation",
-                    category=Category.SECURITY,
-                    severity=Severity.HIGH,
                     message="SQL query appears to be built with string "
                     "concatenation. Use parameterized queries to avoid "
                     "SQL injection.",
