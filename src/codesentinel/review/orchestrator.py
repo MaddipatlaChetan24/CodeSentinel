@@ -33,6 +33,6 @@ def review_source(
                     f"({provider.name} provider not configured — set the "
                     "required API key/host to enable LLM insights.)"
                 )
-        except ProviderError as exc:
+        except ProviderError as exc
             result.llm_summary = f"(LLM review skipped: {exc})"
     return result
