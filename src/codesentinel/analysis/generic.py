@@ -30,8 +30,6 @@ def analyze_generic(source: str, language: str) -> list[Finding]:
                 Finding(
                     rule_id="hardcoded-secret",
                     category=Category.SECURITY,
-                    severity=Severity.CRITICAL,
-                    message="Possible hardcoded credential or secret.",
                     line=lineno,
                 )
 
