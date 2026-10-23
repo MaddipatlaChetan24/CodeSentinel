@@ -1,34 +1,4 @@
 
-    category: Category
-    severity: Severity
-    message: str
-    line: int | None = None
-    column: int | None = None
-    source: str = "static"  # "static" or the LLM provider name
-    suggestion: str | None = None
-
-    def to_dict(self) -> dict:
-        return {
-            "rule_id": self.rule_id,
-            "category": self.category.value,
-            "severity": self.severity.value,
-            "message": self.message,
-            "line": self.line,
-            "column": self.column,
-            "source": self.source,
-            "suggestion": self.suggestion,
-        }
-
-
-@dataclass
-class ReviewResult:
-    target: str
-    language: str
-    findings: list[Finding] = field(default_factory=list)
-    llm_summary: str | None = None
-    llm_provider: str | None = None
-    duration_seconds: float = 0.0
-    created_at: float = field(default_factory=time.time)
 
     @property
     def score(self) -> int:
