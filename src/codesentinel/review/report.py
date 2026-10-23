@@ -38,8 +38,7 @@ def to_markdown(result: ReviewResult) -> str:
         lines.append(result.llm_summary)
         lines.append("")
 
-    return "\n".join(lines)
-
+    return "\n".join(l
 
 def to_html(result: ReviewResult) -> str:
     rows = "".join(
