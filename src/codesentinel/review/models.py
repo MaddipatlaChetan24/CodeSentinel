@@ -100,8 +100,4 @@ class ReviewResult:
             "verdict": self.verdict,
             "findings": [f.to_dict() for f in self.findings],
             "counts_by_severity": self.counts_by_severity(),
-            "llm_summary": self.llm_summary,
-            "llm_provider": self.llm_provider,
-            "duration_seconds": round(self.duration_seconds, 3),
-            "created_at": self.created_at,
-        }
+   
