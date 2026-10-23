@@ -1,35 +1,4 @@
-"""Shared data model for review findings and results."""
 
-from __future__ import annotations
-
-import time
-from dataclasses import dataclass, field
-from enum import Enum
-
-
-class Severity(str, Enum):
-    INFO = "info"
-    LOW = "low"
-    MEDIUM = "medium"
-    HIGH = "high"
-    CRITICAL = "critical"
-
-    @property
-    def weight(self) -> int:
-        return {
-            Severity.INFO: 0,
-            Severity.LOW: 1,
-            Severity.MEDIUM: 2,
-            Severity.HIGH: 3,
-            Severity.CRITICAL: 4,
-        }[self]
-
-
-    SECURITY = "security"
-    PERFORMANCE = "performance"
-    STYLE = "style"
-
-    rule_id: str
     category: Category
     severity: Severity
     message: str
