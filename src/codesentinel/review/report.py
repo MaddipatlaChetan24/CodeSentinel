@@ -23,6 +23,10 @@ def to_markdown(result: ReviewResult) -> str:
     ]
 
     if result.findings:
+        lines.append("## Findings\n")
+        for f in result.findings:
+            loc = f" (line {f.line})" if f.line else ""
+            lines.append(
                 f"- **[{f.severity.value.upper()}] [{f.category.value}] {f.rule_id}**{loc}: {f.message}"
             )
         lines.append("")
@@ -34,7 +38,8 @@ def to_markdown(result: ReviewResult) -> str:
         lines.append(result.llm_summary)
         lines.append("")
 
-    return "\n".join(l
+    return "\n".join(lines)
+
 
 def to_html(result: ReviewResult) -> str:
     rows = "".join(
