@@ -30,7 +30,6 @@ class Category(str, Enum):
     SECURITY = "security"
     PERFORMANCE = "performance"
     STYLE = "style"
-    COMPLEXITY = "complexity"
 
     rule_id: str
     category: Category
