@@ -23,10 +23,6 @@ def to_markdown(result: ReviewResult) -> str:
     ]
 
     if result.findings:
-        lines.append("## Findings\n")
-        for f in result.findings:
-            loc = f" (line {f.line})" if f.line else ""
-            lines.append(
                 f"- **[{f.severity.value.upper()}] [{f.category.value}] {f.rule_id}**{loc}: {f.message}"
             )
         lines.append("")
