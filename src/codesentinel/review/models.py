@@ -31,8 +31,6 @@ class Category(str, Enum):
     PERFORMANCE = "performance"
     STYLE = "style"
     COMPLEXITY = "complexity"
-    MAINTAINABILITY = "maintainability"
-    LLM_INSIGHT = "llm_insight"
 
     rule_id: str
     category: Category
