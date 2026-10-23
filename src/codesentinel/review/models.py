@@ -36,8 +36,6 @@ class ReviewResult:
         if not self.findings:
             return 100
         penalty = sum(f.severity.weight * 5 for f in self.findings)
-        return max(0, 100 - penalty)
-
     @property
     def verdict(self) -> str:
         s = self.score
