@@ -25,8 +25,6 @@ class Severity(str, Enum):
         }[self]
 
 
-class Category(str, Enum):
-    BUG = "bug"
     SECURITY = "security"
     PERFORMANCE = "performance"
     STYLE = "style"
