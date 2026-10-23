@@ -34,9 +34,6 @@ class Category(str, Enum):
     MAINTAINABILITY = "maintainability"
     LLM_INSIGHT = "llm_insight"
 
-
-@dataclass
-class Finding:
     rule_id: str
     category: Category
     severity: Severity
