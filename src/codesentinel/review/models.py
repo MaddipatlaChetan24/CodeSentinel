@@ -98,6 +98,4 @@ class ReviewResult:
             "language": self.language,
             "score": self.score,
             "verdict": self.verdict,
-            "findings": [f.to_dict() for f in self.findings],
-            "counts_by_severity": self.counts_by_severity(),
    
