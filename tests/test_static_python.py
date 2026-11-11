@@ -51,4 +51,5 @@ def test_syntax_error_reported():
 
 def test_high_complexity_detected():
     branches = "\n".join(f"    if x == {i}:\n        y += 1" for i in range(15))
-    src = f"def f(x):\n    y = 
+    src = f"def f(x):\n    y = 0\n{branches}\n    return y\n"
+    assert "high-cyclomatic-complexity" in _rule_ids(src)
