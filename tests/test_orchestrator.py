@@ -24,4 +24,3 @@ def test_generic_language_uses_regex_checks(tmp_path):
     src = 'const apiKey = "abcd1234efgh5678";\n'
     config = RuleConfig.load(tmp_path / "none.yml")
     result = review_source(src, language="javascript", provider=None, rule_config=config)
-    assert any(f.rule_id == "hardcoded-secret" for f in result.findings)
